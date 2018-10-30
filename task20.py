@@ -12,8 +12,8 @@ import string
 
 def sampleCount(substring):
     condition = lambda x: x.count(substring)
-    pred = lambda x, y: condition(x) + condition(y) if type(x) != int else x + condition(y)
+    pred = lambda x, y: x + condition(y)
     def f(func, lst):
-        return reduce(func, lst)
+        return reduce(func, lst, 0)
     return partial(f, pred)
 
